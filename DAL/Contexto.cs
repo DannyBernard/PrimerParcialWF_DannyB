@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -10,7 +11,7 @@ using System.Web.Configuration;
 namespace DAL
 {
     public class Contexto : DbContext { 
-      //  public DbSet<> MyProperty { get; set; }
+       public DbSet<Prueba> pruebas { get; set; }
 
         public Contexto() : base("ConStr")
         {
