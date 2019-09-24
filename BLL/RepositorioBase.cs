@@ -11,25 +11,26 @@ namespace BLL
 {
     public class RepositorioBase<T> : IDisposable, IRepository<T> where T : class
     {
-        
+
         internal Contexto _contexto;
 
         public RepositorioBase()
         {
             _contexto = new Contexto();
         }
-       
+
         public T Buscar(int id)
         {
             T entity;
             try
             {
-                entity = _contexto.
+                entity = _contexto.Set<T>().Find(id);
             }
             catch (Exception)
             {
                 throw;
             }
+            return entity;
         }
 
         public void Dispose()
@@ -39,22 +40,74 @@ namespace BLL
 
         public bool Eliminar(int id)
         {
-            throw new NotImplementedException();
+            bool paso = false;
+            try
+            {
+                T entiy = _contexto.Set<T>().Find(id);
+                _contexto.Set<T>().Remove(entiy);
+
+                if (_contexto.SaveChanges() > 0)
+                    paso = true;
+
+                _contexto.Dispose();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
+
         }
 
         public List<T> GetList(Expression<Func<T, bool>> expression)
         {
-            throw new NotImplementedException();
+            List<T> Lista = new List<T>();
+
+            try
+            {
+                Lista = _contexto.Set<T>().Where(expression).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return Lista;
         }
 
         public bool Guardar(T entity)
         {
-            throw new NotImplementedException();
+            bool paso = false;
+
+            try
+            {
+                if (_contexto.Set<T>().Add(entity) != null)
+                    _contexto.SaveChanges();
+                paso = true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
+
         }
 
         public bool Modificar(T entity)
         {
-            throw new NotImplementedException();
+            bool paso = true;
+            try
+            {
+                _contexto.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+                if (_contexto.SaveChanges() > 0)
+                {
+                    paso = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
         }
     }
 }
