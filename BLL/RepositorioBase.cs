@@ -19,7 +19,7 @@ namespace BLL
             _contexto = new Contexto();
         }
 
-        public T Buscar(int id)
+        public virtual T Buscar(int id)
         {
             T entity;
             try
@@ -92,7 +92,7 @@ namespace BLL
 
         }
 
-        public bool Modificar(T entity)
+        public virtual bool Modificar(T entity)
         {
             bool paso = true;
             try

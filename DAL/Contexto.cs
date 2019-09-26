@@ -11,7 +11,7 @@ using System.Web.Configuration;
 namespace DAL
 {
     public class Contexto : DbContext { 
-       public DbSet<Prueba> pruebas { get; set; }
+       public DbSet<Estudiante> estudiantes { get; set; }
 
         public Contexto() : base("ConStr")
         {

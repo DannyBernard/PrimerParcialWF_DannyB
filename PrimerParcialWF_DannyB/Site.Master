@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PrimerParcialWF_DannyB.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+	<link href="Content/toastr.css" rel="stylesheet" />
+	<script type="text/javascript" src="/Scripts/toastr.min.js"></script>
+	<title>Primer Pacial</title>
+	<asp:ContentPlaceHolder ID="head" runat="server">
+	</asp:ContentPlaceHolder>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<!--<div class="container-fluid">-->
+		<a class="navbar-brand" runat="server" href="Default.aspx">Primer Parcial</a>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+			<span class=" navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+			<ul class=" navbar-nav mr-auto mt-2 mt-lg-0" role="menu" aria-labelledby="dropdownMenu1">
+				<li class="nav-item  active" role="presentation">
+					<a class="nav-link" role="menuitem" tabindex="-1" href="Registro/RegistroEstudiante.aspx">Registro</a><span class="sr-only">(current)</span>
+
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-4">Primer Parcial</h1>
+			<p class="lead"></p>
+		</div>
+	</div>
+	
+
+
+
+	<form id="form1" runat="server">
+		<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+	</asp:ContentPlaceHolder>
+	</form>
+	<hr />
+	<footer>
+		<p>&copy; <%: DateTime.Now.Year %> - PrimerParcial</p>
+	</footer>
+</body>
+</html>
